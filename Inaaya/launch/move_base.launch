@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+
+<launch>
+
+  <!-- Run the map server -->
+  <node name="map_server" pkg="map_server" type="map_server" args=" $(find chapter5_tutorials)/maps/map.yaml" output="screen" />
+ 
+<node name="amcl" pkg="amcl" type="amcl" output="screen">
+    <param name="base_frame_id" value="link_chassis"/>
+    <param name="use_map_topic" value="true"/>
+</node>
+  <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
+    <param name="controller_frequency" value="10.0"/>
+    <param name="controller_patiente" value="15.0"/>
+    <rosparam file="$(find chapter5_tutorials)/launch/costmap_common_params.yaml" command="load" ns="global_costmap" />
+    <rosparam file="$(find chapter5_tutorials)/launch/costmap_common_params.yaml" command="load" ns="local_costmap" />
+    <rosparam file="$(find chapter5_tutorials)/launch/local_costmap_params.yaml" command="load" />
+    <rosparam file="$(find chapter5_tutorials)/launch/global_costmap_params.yaml" command="load" />
+    <rosparam file="$(find chapter5_tutorials)/launch/base_local_planner_params.yaml" command="load" />
+  </node>
+
+
+</launch>
