@@ -1,5 +1,5 @@
-# Inaaya-Navigation & Perception
-Inaaya(Humanoid)- Robot model description,Path Planning and Speech to actuation part for both the phases
+# Humanoid-Navigation & Perception
+(Humanoid)- Robot model description,Path Planning and Speech to actuation part for both the phases
 Phase 1 & Phase 2:
 
 
